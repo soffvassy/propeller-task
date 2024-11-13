@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, CSSProperties } from 'react';
 import './App.css';
 import './style.css';
 
@@ -36,7 +36,7 @@ const Pokemon: React.FC<PokemonProps> = ({ type1, type2, id, weight, height, nam
         style={{
           '--image-url': `url(${image})`,
           '--image-backurl': `url(${imageback})`,
-        }}
+        } as CSSProperties}
         className="mb-2 w-24 h-24 m-auto bg-[image:var(--image-url)] hover:bg-[image:var(--image-backurl)]"
       />
       <p><b>{name}</b></p>
@@ -99,9 +99,9 @@ function App() {
       <div className="p-10 bg-slate-50">
         Sort by type: 
         {typesOfPokemons.map(currfilter=> (
-          <span className={currfilter===filter? "cursor-pointer underline p-3": "cursor-pointer p-3"}  onClick={()=>setFilter(currfilter)}>{currfilter}</span>
+          <span className={currfilter===filter? "inline-block cursor-pointer underline p-3": "inline-block cursor-pointer p-3"}  onClick={()=>setFilter(currfilter)}>{currfilter}</span>
         ))}
-        <span className="cursor-pointer  p-3" onClick={()=>setFilter('')}>Clear types</span>
+        <span className="inline-block cursor-pointer  p-3" onClick={()=>setFilter('')}>Clear types</span>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 bg-slate-50">
         {pokemonList && pokemonList.results ? (

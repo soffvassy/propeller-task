@@ -608,6 +608,10 @@ video {
   margin-bottom: 0.5rem;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .grid {
   display: grid;
 }
